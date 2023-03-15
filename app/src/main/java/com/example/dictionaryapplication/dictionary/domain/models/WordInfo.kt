@@ -1,0 +1,3 @@
+package com.example.dictionaryapplication.dictionary.domain.models
+
+data class WordInfo()
