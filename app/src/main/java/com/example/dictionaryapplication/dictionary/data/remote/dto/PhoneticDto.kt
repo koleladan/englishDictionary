@@ -1,8 +1,6 @@
 package com.example.dictionaryapplication.dictionary.data.remote.dto
 
-data class Phonetic(
+data class PhoneticDto(
     val audio: String,
-    val license: License,
-    val sourceUrl: String,
     val text: String
 )
