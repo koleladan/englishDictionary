@@ -1,8 +1,15 @@
 package com.example.dictionaryapplication.dictionary.data.remote.dto
 
-data class Meaning(
-    val antonyms: List<Any>,
-    val definitions: List<Definition>,
-    val partOfSpeech: String,
-    val synonyms: List<String>
-)
+import com.example.dictionaryapplication.dictionary.domain.models.Meaning
+
+data class MeaningDto(
+    val definitions: List<DefinitionDto>,
+    val partOfSpeech: String
+){
+    fun toMeaning(): Meaning{
+        return  Meaning(
+            definitions = definitions.map { it.toDefinition() },
+            partOfSpeech = partOfSpeech
+        )
+    }
+}

@@ -1,4 +1,4 @@
-package com.example.dictionaryapplication.core.util
+package com.example.dictionaryapplication.dictionary.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,16 +9,17 @@ import com.example.dictionaryapplication.dictionary.domain.models.WordInfo
 data class WordInfoEntity(
     val meanings: List<Meaning>,
     val phonetic: String,
-    val sourceUrls: List<String>,
     val word: String,
+    val origin: String,
     @PrimaryKey val id: Int? = null
 ){
+    //mapper
     fun toWordInfo(): WordInfo{
         return  WordInfo(
             meanings= meanings,
             phonetic =phonetic,
             word = word,
-            sourceUrls = sourceUrls
+            origin = origin
         )
     }
 }

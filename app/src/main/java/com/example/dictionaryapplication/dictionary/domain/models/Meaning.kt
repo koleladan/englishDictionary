@@ -1,3 +1,7 @@
 package com.example.dictionaryapplication.dictionary.domain.models
 
-data class Meaning()
+data class Meaning(
+
+    val definitions: List<Definition>,
+    val partOfSpeech: String
+)
