@@ -8,9 +8,9 @@ import com.example.dictionaryapplication.dictionary.domain.models.WordInfo
 @Entity
 data class WordInfoEntity(
     val meanings: List<Meaning>,
-    val phonetic: String,
-    val word: String,
-    val origin: String,
+    val phonetic: String?,
+    val word: String?,
+    val origin: String?,
     @PrimaryKey val id: Int? = null
 ){
     //mapper

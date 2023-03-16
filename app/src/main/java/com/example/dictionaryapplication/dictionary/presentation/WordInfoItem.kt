@@ -18,32 +18,44 @@ fun WordInfoItem(
     modifier: Modifier = Modifier
 ){
     Column(modifier = modifier) {
-        Text(
-            text = wordInfo.word,
-            fontSize =  24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
+        wordInfo.word?.let {
+            Text(
+                text = it,
+                fontSize =  24.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
 
-        )
-        Text(
-            text = wordInfo.phonetic, fontWeight = FontWeight.Light
-            
-        )
+            )
+        }
+        wordInfo.phonetic?.let {
+            Text(
+                text = it, fontWeight = FontWeight.Light
+
+            )
+        }
         Spacer(modifier = Modifier.height(18.dp))
-        Text(text = wordInfo.origin )
+        wordInfo.origin?.let { Text(text = it) }
 
         wordInfo.meanings.forEach { meaning ->
-            Text(text = meaning.partOfSpeech, fontWeight = FontWeight.Bold)
-            meaning.definitions.forEachIndexed { i, definition ->
-                Text(text = "${i + 1}. ${definition.definition}" )
-                Spacer(modifier = Modifier.height(8.dp))
+            if (meaning != null) {
+                meaning.partOfSpeech?.let { Text(text = it, fontWeight = FontWeight.Bold) }
+            }
+            if (meaning != null) {
+                meaning.definitions.forEachIndexed { i, definition ->
+                    if (definition != null) {
+                        Text(text = "${i + 1}. ${definition.definition}" )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
 
-                definition.example?.let { example ->
-                    Text(text = "Example: $example")
+                    if (definition != null) {
+                        definition.example?.let { example ->
+                            Text(text = "Example: $example")
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+
+
                 }
-                Spacer(modifier = Modifier.height(8.dp))              
-
-
             }
             Spacer(modifier = Modifier.height(16.dp))
         }

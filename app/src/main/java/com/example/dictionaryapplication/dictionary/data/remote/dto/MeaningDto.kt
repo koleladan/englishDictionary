@@ -4,7 +4,7 @@ import com.example.dictionaryapplication.dictionary.domain.models.Meaning
 
 data class MeaningDto(
     val definitions: List<DefinitionDto>,
-    val partOfSpeech: String
+    val partOfSpeech: String?
 ){
     fun toMeaning(): Meaning{
         return  Meaning(

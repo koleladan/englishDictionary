@@ -25,7 +25,7 @@ class WordInfoRepositoryImpl(
 
         try {
             val remoteWordInfos = api.getWordInfo(word)
-            dao.deleteWordInfos(remoteWordInfos.map { it.word })
+            remoteWordInfos.map { it.word }?.let { dao.deleteWordInfos(it as List<String>) }
             dao.insertWordInfos(remoteWordInfos.map { it.toWordInfoEntity() })
 
         }catch (e:HttpException){

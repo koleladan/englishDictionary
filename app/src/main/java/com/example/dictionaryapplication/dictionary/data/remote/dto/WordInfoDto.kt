@@ -4,9 +4,9 @@ import com.example.dictionaryapplication.dictionary.data.local.entity.WordInfoEn
 
 data class WordInfoDto(
     val meanings: List<MeaningDto>,
-    val origin: String,
-    val phonetic: String,
-    val word: String
+    val origin: String?,
+    val phonetic: String?,
+    val word: String?
 )
 {
     fun toWordInfoEntity(): WordInfoEntity{
